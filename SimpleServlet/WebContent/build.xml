@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="FirstServlet" default="compile">
+
+	
+	<property name="bin" location="bin">
+	</property>
+	<property name="src" location="src">
+	</property>
+	
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${bin}" />
+	</target>
+
+	
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" classpathref="classpath" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="build/SimpleServlet-${DSTAMP}.jar" basedir="bin">
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${bin}">
+		</delete>
+			
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="FirstServlet1.FirstServlet" classpathref="classpath" />
+	</target>
+
+		
+
+
+</project>
